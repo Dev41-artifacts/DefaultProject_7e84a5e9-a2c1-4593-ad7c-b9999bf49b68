@@ -1,0 +1,243 @@
+```html
+<html lang="en" class="bg-background">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Platform - User-Friendly Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+      :root {
+          --primary: #6A57D7;
+          --action: #F5B140;
+          --textPrimary: #282828;
+          --textSecondary: #6C757D;
+          --background: #FFFFFF;
+          --surface: #F4F4F4;
+          --border: #E0E0E0;
+          --border-card: #EADFCF;
+      }
+
+      body {
+          font-family: 'Poppins', sans-serif;
+          background-color: var(--background);
+          color: var(--textPrimary);
+      }
+
+      .card {
+          backdrop-filter: blur(10px);
+          background: rgba(var(--background), 0.8);
+          border: 1px solid var(--border-card);
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+          transition: all 0.3s ease;
+      }
+
+      .metric-card {
+          background: linear-gradient(135deg, #6A57D7 0%, #8B7AE8 100%);
+          color: white;
+          border-radius: 12px;
+      }
+
+      .btn-primary {
+          background: linear-gradient(135deg, var(--primary), #8B7AE8);
+          color: white;
+          border: none;
+          transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(106, 87, 215, 0.3);
+      }
+
+      .progress-bar {
+          height: 8px;
+          border-radius: 4px;
+          background-color: var(--surface);
+          overflow: hidden;
+      }
+
+      .progress-fill {
+          height: 100%;
+          background: linear-gradient(90deg, var(--primary), #8B7AE8);
+          border-radius: 4px;
+      }
+
+      .badge {
+          padding: 4px 10px;
+          border-radius: 20px;
+          font-size: 0.75rem;
+          font-weight: 500;
+      }
+      
+      .drag-drop-area {
+          border: 2px dashed var(--border);
+          border-radius: 12px;
+          background-color: rgba(244, 244, 244, 0.5);
+          transition: all 0.3s ease;
+          text-align: center;
+      }
+      
+      .drag-drop-area:hover {
+          border-color: var(--primary);
+          background-color: rgba(106, 87, 215, 0.05);
+      }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-slate-200/60 z-50 py-3 px-6">
+      <div class="flex justify-between items-center">
+          <div>
+              <h1 class="text-xl font-bold text-primary">User-Friendly E-commerce Platform</h1>
+              <p class="text-xs text-textSecondary">Empowering everyday users</p>
+          </div>
+          <div class="flex items-center space-x-4">
+              <button class="p-2 rounded-full hover:bg-surface transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-textSecondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+              </button>
+              <div class="flex items-center space-x-2">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-purple-600 flex items-center justify-center text-white font-semibold">U</div>
+                  <span class="text-sm font-medium">User</span>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <main class="px-6 py-8 max-w-7xl mx-auto">
+      <section class="mb-10">
+          <h1 class="text-3xl font-bold mb-2">E-commerce Dashboard</h1>
+          <p class="text-lg text-textSecondary mb-6">A centralized place to track user-friendly e-commerce activities.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+              <div class="metric-card p-5 flex flex-col">
+                  <div class="text-sm mb-1">Total Products</div>
+                  <div class="text-2xl font-bold">1,500</div>
+                  <div class="text-sm opacity-80 mt-auto">Target: 2,000</div>
+                  <div class="progress-bar mt-3">
+                      <div class="progress-fill" style="width: 75%"></div>
+                  </div>
+              </div>
+
+              <div class="metric-card p-5 flex flex-col" style="background: linear-gradient(135deg, #F5B140 0%, #FFC96B 100%);">
+                  <div class="text-sm mb-1">Active Users</div>
+                  <div class="text-2xl font-bold">340</div>
+                  <div class="text-sm opacity-80 mt-auto">Target: 500</div>
+                  <div class="progress-bar mt-3">
+                      <div class="progress-fill" style="width: 68%; background: linear-gradient(90deg, #F5B140, #FFC96B);"></div>
+                  </div>
+              </div>
+
+              <div class="metric-card p-5 flex flex-col" style="background: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%);">
+                  <div class="text-sm mb-1">User Transactions</div>
+                  <div class="text-2xl font-bold">245</div>
+                  <div class="text-sm opacity-80 mt-auto">Trend: Growing</div>
+                  <div class="progress-bar mt-3">
+                      <div class="progress-fill" style="width: 85%; background: linear-gradient(90deg, #2ecc71, #1abc9c);"></div>
+                  </div>
+              </div>
+
+              <div class="metric-card p-5 flex flex-col" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                  <div class="text-sm mb-1">Monthly Revenue</div>
+                  <div class="text-2xl font-bold">$13,500</div>
+                  <div class="text-sm opacity-80 mt-auto">Target: $15,000</div>
+                  <div class="progress-bar mt-3">
+                      <div class="progress-fill" style="width: 90%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="card p-6 mb-10">
+          <h2 class="text-2xl font-semibold mb-6">User Guidelines Upload</h2>
+          <div class="mb-5">
+              <label class="block text-sm font-medium mb-2">Upload User Manual (Optional)</label>
+              <div class="drag-drop-area p-6">
+                  <p class="text-sm text-textSecondary">Drag & drop your user manual PDF or document here</p>
+                  <p class="text-xs text-textSecondary mt-1">Max file size: 10MB</p>
+              </div>
+          </div>
+          <div class="flex justify-end">
+              <button class="btn-primary px-8 py-3 rounded-lg font-semibold flex items-center">
+                  Submit Manual
+              </button>
+          </div>
+      </section>
+
+      <section class="mb-10">
+          <h2 class="text-2xl font-semibold mb-6">Recent Transactions</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="card p-5">
+                  <div class="flex justify-between mb-2">
+                      <div>
+                          <div class="font-semibold">Order #12345</div>
+                          <div class="text-sm text-textSecondary">User: Jane Doe</div>
+                      </div>
+                      <span class="badge badge-success">Completed</span>
+                  </div>
+                  <div class="mt-2">Total: $150</div>
+              </div>
+
+              <div class="card p-5">
+                  <div class="flex justify-between mb-2">
+                      <div>
+                          <div class="font-semibold">Order #12346</div>
+                          <div class="text-sm text-textSecondary">User: John Smith</div>
+                      </div>
+                      <span class="badge badge-warning">Pending</span>
+                  </div>
+                  <div class="mt-2">Total: $75</div>
+              </div>
+          </div>
+      </section>
+  </main>
+
+  <script>
+      // Drag and drop functionality
+      const dropArea = document.querySelector('.drag-drop-area');
+      
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+          dropArea.addEventListener(eventName, preventDefaults, false);
+      });
+      
+      function preventDefaults(e) {
+          e.preventDefault();
+          e.stopPropagation();
+      }
+      
+      ['dragenter', 'dragover'].forEach(eventName => {
+          dropArea.addEventListener(eventName, highlight, false);
+      });
+      
+      ['dragleave', 'drop'].forEach(eventName => {
+          dropArea.addEventListener(eventName, unhighlight, false);
+      });
+      
+      function highlight() {
+          dropArea.classList.add('drag-over');
+      }
+      
+      function unhighlight() {
+          dropArea.classList.remove('drag-over');
+      }
+      
+      dropArea.addEventListener('drop', handleDrop, false);
+      
+      function handleDrop(e) {
+          const dt = e.dataTransfer;
+          const files = dt.files;
+          handleFiles(files);
+      }
+      
+      function handleFiles(files) {
+          if (files.length) {
+              alert(`File "${files[0].name}" ready for processing!`);
+          }
+      }
+  </script>
+</body>
+</html>
+```
